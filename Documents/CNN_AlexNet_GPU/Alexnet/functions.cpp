@@ -908,3 +908,41 @@ void Adam(vector<vector<double>> &deltaWeight, vector<vector<double>> &deltaBias
 		}
 	}
 }
+
+vector<vector<vector<double>>> bNormalize(vector<vector<vector<double>>> X)
+{
+	vector<vector<vector<double>>> Y;
+	int I = X.size();
+	int J = X[0].size();
+	int K = X[0][0].size();
+	double sum = 0;
+	
+
+	for (int i = 0; i < I; i++) {
+		for (int j = 0; j < J; j++) {
+			for (int k = 0; k < K; k++) {
+				sum += X[i][j][k];
+			}
+		}
+	}
+
+	double mean = sum / I*J*K;
+	double var = 0;
+	for (int i = 0; i < I; i++) {
+		for (int j = 0; j < J; j++) {
+			for (int k = 0; k < K; k++) {
+				var += (X[i][j][k] - mean)*(X[i][j][k] - mean) / I*J*K;
+			}
+		}
+	}
+
+	for (int i = 0; i < I; i++) {
+		for (int j = 0; j < J; j++) {
+			for (int k = 0; k < K; k++) {
+				Y[i][j][k] = (X[i][j][k] - mean) / (sqrt(var + 1e-8));
+			}
+		}
+	}
+	
+	return Y;
+}
