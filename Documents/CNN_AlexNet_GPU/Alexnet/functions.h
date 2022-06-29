@@ -65,3 +65,4 @@ void RMSProp(vector<vector<double>> &deltaWeight, vector<vector<double>> &deltaB
 void GDMoment(vector<vector<double>> &deltaWeight, vector<vector<double>> &deltaBias, vector<vector<double>> opt_weight, vector<vector<double>> &opt_bias, vector<vector<double>> gradientWeight, vector<vector<double>> &error, double momentum, int ep);
 void Adagrad(vector<vector<double>> &deltaWeight, vector<vector<double>> &deltaBias, vector<vector<double>> opt_weight, vector<vector<double>> &opt_bias, vector<vector<double>> gradientWeight, vector<vector<double>> &error, int ep);
 void Adam(vector<vector<double>> &deltaWeight, vector<vector<double>> &deltaBias, vector<vector<double>> opt_weight, vector<vector<double>> &opt_bias, vector<vector<double>> mom_weight, vector<vector<double>> &mom_bias, vector<vector<double>> gradientWeight, vector<vector<double>> &error, double beta1, double beta2, int ep);
+vector<vector<vector<double>>> bNormalize(vector<vector<vector<double>>> X);
